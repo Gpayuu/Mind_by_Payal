@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <h1 class="logo">
+            ꧁༺ 𝓜𝓮𝓷𝓽𝓮𝓮𝓪𝓼𝓮 ༻꧂
+        </h1>
+        <ul class="nav-links">
+            <li class="active"><a href=""><span class="active">Home</span></a></li>
+            <li><a href="../index.html">About us</a></li>
+            <li><a href="home.html">assistance</a></li>
+            <li><a href="maximum.html">Review</a></li>
+            <li class="ctn"><a href=""></a>Contact</li>
+        </ul>
+        <img src="./image.png" alt="" class="menu-btn">
+    </nav>
+    <header>
+        <div class="header-content">
+            <h2>
+                Welcome To Mentis
+            </h2>
+            <div class="line">
+                <h1> <span class="white">Peace</span></h1>
+                <a href="" class="ctn">Learn More</a>
+            </div>
+        </div>
+    </header>
+    <!-- disease -->
+    <section class="disease">
+        <div class="title">
+            <h1>Relief From Mental Issue</h1>
+            <div class="line"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="images2.jpg" alt="" width="600" height="300">
+                <h4>Depression disease</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi sed rem molestias, laborum
+                    voluptatum quae nobis pariatur velit dolore necessitatibus quidem. Labore similique eveniet
+                    cupiditate iure animi fugiat, nostrum illum repudiandae placeat, dicta quos possimus accusamus
+                    obcaecati ea nam. Corrupti consectetur dolorem dignissimos! Assumenda, natus?</p>
+                <a href="#" class="ctn">Learn More</a>
+            </div>
+            <div class="col">
+                <img src="Depression+in+men.png" alt="" width="600" height="300">
+                <h4>Depression disease</h4>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi sed rem molestias, laborum
+                    voluptatum quae nobis pariatur velit dolore necessitatibus quidem. Labore similique eveniet
+                    cupiditate iure animi fugiat, nostrum illum repudiandae placeat, dicta quos possimus accusamus
+                    obcaecati ea nam. Corrupti consectetur dolorem dignissimos! Assumenda, natus?</p>
+                <a href="#" class="ctn">Learn More</a>
+            </div>
+        </div>
+    </section>
+    <section class="explore">
+        <div class="explore-content">
+            <h1>Explore the dictonary</h1>
+            <div class="line"></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe delectus dolorem maxime beatae facere
+                neque
+                eaque eveniet, fugit ipsum, perferendis magnam dolore, rem aliquid molestias ab! Rerum quod mollitia
+                doloremque?</p>
+            <a href="#" class="ctn">Learn more</a>
+
+        </div>
+    </section>
+    <style>
+        .dicton {
+    font-family: Arial, sans-serif;
+    background-color: beige;
+    text-align: center;
+    
+   border-radius: 30px;
+    width: 50%;
+    padding: 20px;
+}
+
+.containerr {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+#searchBox {
+    width: 80%;
+    padding: 10px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.result-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e0f7fa;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .dicton{
+        width: 100%;
+    }
+    .container {
+        width: 100%;
+    }
+    #searchBox {
+        width: 100%;
+    }
+
+}
+    </style>
+    <section class="dicton">
+        <div class="containerr">
+            <h1>Mental Health Dictionary</h1>
+            <input type="text" id="searchBox" placeholder="Search mental health condition..." oninput="searchCondition()">
+            <div id="result" class="result-box"></div>
+        </div>
+   <script>
+        const data = {
+    "Depression": {
+        "Symptoms": "Persistent sadness, loss of interest, fatigue, difficulty concentrating.",
+        "Precautions": "Regular exercise, therapy, social support, healthy sleep habits.",
+        "Food": "Omega-3 rich foods, leafy greens, nuts, and dark chocolate.",
+        "Meditation": "Mindfulness meditation, deep breathing exercises, yoga."
+    },
+    "Anxiety": {
+        "Symptoms": "Excessive worry, restlessness, rapid heart rate, trouble sleeping.",
+        "Precautions": "Cognitive behavioral therapy, relaxation techniques, reducing caffeine intake.",
+        "Food": "Herbal tea, whole grains, probiotic-rich foods, bananas.",
+        "Meditation": "Guided meditation, grounding exercises, progressive muscle relaxation."
+    }
+};
+
+function searchCondition() {
+    const searchBox = document.getElementById("searchBox").value.trim();
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = "";
+
+    if (searchBox in data) {
+        const condition = data[searchBox];
+        resultDiv.innerHTML = `
+            <div class="result-box">
+                <h2>${searchBox}</h2>
+                <p><strong>Symptoms:</strong> ${condition.Symptoms}</p>
+                <p><strong>Precautions:</strong> ${condition.Precautions}</p>
+                <p><strong>Food:</strong> ${condition.Food}</p>
+                <p><strong>Meditation:</strong> ${condition.Meditation}</p>
+            </div>
+        `;
+    } else {
+        resultDiv.innerHTML = "<p style='color: red;'>Condition not found. Try another search.</p>";
+    }
+}
+   </script>
+    </section>
+    <div class="trauma">
+        <div class="row">
+            <div class="col content-col">
+                <h1>Trauma you have</h1>
+                <div class="line"></div>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, quo. Quidem, accusamus dicta nemo sequi
+                    cum, iste ex optio sunt ab asperiores, fugiat reprehenderit minima quod aspernatur omnis eum.
+                    Cupiditate?</p>
+            </div>
+            <div class="col image-col">
+                <div class="image-gallery">
+                    <img src="ert1.webp" alt="">
+                    <img src="ert2.webp" alt="">
+                    <img src="ert3.webp" alt="">
+                    <img src="Depression+in+men.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="footer">
+        <p>Gandhi Gram colony ,Bhagalpur, Bihar |9234124208| aman92341242@gmail.com</p>
+        <p>Copyright @ to aman bhardwaz</p>
+    </section>
+
+
+    <script>
+        const menuBtn = document.querySelector('.menu-btn');
+        const navlinks = document.querySelector('.nav-links');
+        menuBtn.addEventListener('click', () => {
+            navlinks.classList.toggle('mobile-menu');
+        })
+    </script>
+</body>
+
+</html>
