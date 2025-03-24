@@ -14,6 +14,16 @@ header {
     justify-content: center;
     align-items: flex-start;
 }
+headerr {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./bird.png);
+    background-position: bottom;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
 .active{
     color: #03fc45;
     /* text-decoration: underline; */
@@ -237,7 +247,7 @@ p {
     }
     .mobile-menu {
         margin-top: 0px;
-        border-bottom-right-radius: 30%;
+        border-bottom-right-radius: 50%;
     }
  .nav-links li {
     margin: 30px auto;

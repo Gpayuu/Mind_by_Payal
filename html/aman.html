@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.0)), url(./images/pexels-pixabay-414144.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .navbar {
+            width: 85%;
+            margin: auto;
+            padding: 35px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 120px;
+            cursor: pointer;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .navbar ul li::after {
+            content: '';
+            height: 3px;
+            width: 0%;
+            background: #009688;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover::after {
+            width: 100%;
+        }
+
+        .menubar {
+            font-size: 22px;
+        }
+
+        .content {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            color: #fff;
+        }
+
+        .content h1 {
+            font-size: 70px;
+            margin-top: 80px;
+        }
+
+        .content p {
+            margin: 20px auto;
+            font-weight: 100;
+            line-height: 25px;
+        }
+
+        button {
+            width: 200px;
+            padding: 15px 0;
+            text-align: center;
+            margin: 20px 10px;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 2px solid #009688;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        span {
+            background: #009688;
+            height: 100%;
+            width: 0%;
+            border-radius: 25px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            transition: 0.5s;
+        }
+
+        button:hover span {
+            width: 100%;
+        }
+
+        button:hover {
+            border: none;
+        }
+
+        .menu-btn {
+            display: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 30px;
+        }
+
+        .responsive-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .responsive-nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .responsive-nav ul li {
+            margin: 20px 0;
+        }
+
+        .responsive-nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .responsive-nav .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .content h1::after {
+            content: '';
+            display: block;
+            width: 400px;
+            height: 3px;
+            background-color: red;
+            margin: 10px auto;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+            }
+
+            .content h1::after {
+                width: 100px;
+            }
+
+            .content h1 {
+                font-size: 30px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <h1 class="logo" style="color: #fff;">Mentease</h1>
+            <ul class="menubar">
+                <li><a href="..index.html">Home</a></li>
+                <li><a href="./">Contact</a></li>
+                <li><a href=".">Service</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Price</a></li>
+            </ul>
+            <div class="menu-btn">&#9776;</div>
+        </div>
+        <div class="content">
+            <h1>Welcome To Our Website</h1>
+            <p>"Healing takes time, and asking for help is a courageous step."</p>
+            <div>
+                <button type="button"><span></span>Come Here</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="responsive-nav">
+        <div class="close-btn">&times;</div>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Price</a></li>
+        </ul>
+    </div>
+    <section>
+        <style>
+            h2 {
+                text-align: center;
+                /* Centers the text horizontally */
+                color: #a01212;
+                /* Text color */
+                font-size: 40px;
+            }
+        </style>
+        <h2>How To Overcome Your Trauma</h2>
+
+    </section>
+    <section>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                padding: 20px;
+            }
+
+            .box {
+                width: 30%;
+                margin: 10px 0;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .box img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            .box p {
+                padding: 10px;
+                font-size: 16px;
+                color: #333;
+            }
+
+            @media (max-width: 768px) {
+                .box {
+                    width: 45%;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .box {
+                    width: 100%;
+                }
+            }
+        </style>
+
+        <div class="container">
+            <div class="box">
+                <img src="./images/buddha-1177009_1280.jpg" alt="Image 1" width="34px">
+                <p style="color:rgb(34, 255, 0); font-size: 21px; ">Mindfulness Meditation
+                    Focus your attention on the present moment, observing your thoughts, emotions, and sensations
+                    without judgment. You can practice mindfulness by sitting quietly, closing your eyes, and
+                    concentrating on your Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, sit
+                    dignissimos. Veniam fugiat rerum soluta minus officia eos, quo repellat, culpa quas itaque
+                    voluptatibus ad blanditiis architecto consequuntur iusto magnam sint earum et. Laboriosam
+                    consequuntur nihil autem libero est voluptate iste explicabo, hic commodi quos iure doloribus
+                    expedita aliquam cumque aperiam? Velit nesciunt earum voluptates beatae sit? Aut cupiditate in
+                    similique, rem sit excepturi vitae itaque voluptatum dolorem ad nobis non alias adipisci, optio eos
+                    esse? Quo maiores eligendi voluptate tenetur voluptatibus doloribus placeat veritatis, facilis
+                    impedit consequuntur? Magni in illo vel quidem eveniet fuga deserunt officiis fugit illum delectus.
+                    </breath>
+                </p>
+            </div>
+            <div class="box">
+                <img src="./images/meditation-7742686_1280.jpg" alt="Image 2">
+                <p style="color:rgb(34, 255, 0); font-size: 21px; ">Mindfulness Meditation
+                    Focus your attention on the present moment, observing your thoughts, emotions, and sensations
+                    without judgment. You can practice mindfulness by sitting quietly, closing your eyes, and
+                    concentrating on your Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, sit
+                    dignissimos. Veniam fugiat rerum soluta minus officia eos, quo repellat, culpa quas itaque
+                    voluptatibus ad blanditiis architecto consequuntur iusto magnam sint earum et. Laboriosam
+                    consequuntur nihil autem libero est voluptate iste explicabo, hic commodi quos iure doloribus
+                    expedita aliquam cumque aperiam? Velit nesciunt earum voluptates beatae sit? Aut cupiditate in
+                    similique, rem sit excepturi vitae itaque voluptatum dolorem ad nobis non alias adipisci, optio eos
+                    esse? Quo maiores eligendi voluptate tenetur voluptatibus doloribus placeat veritatis, facilis
+                    impedit consequuntur? Magni in illo vel quidem eveniet fuga deserunt officiis fugit illum delectus.
+                    </breath>
+                </p>
+            </div>
+            <div class="box">
+                <img src="images/maxresdefault.jpg" alt="Image 3">
+                <p style="color: rgb(34, 255, 0); font-size: 21px;">Mindfulness Meditation
+                    Focus your attention on the present moment, observing your thoughts, emotions, and sensations
+                    without judgment. You can practice mindfulness by sitting quietly, closing your eyes, and
+                    concentrating on your Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, sit
+                    dignissimos. Veniam fugiat rerum soluta minus officia eos, quo repellat, culpa quas itaque
+                    voluptatibus ad blanditiis architecto consequuntur iusto magnam sint earum et. Laboriosam
+                    consequuntur nihil autem libero est voluptate iste explicabo, hic commodi quos iure doloribus
+                    expedita aliquam cumque aperiam? Velit nesciunt earum voluptates beatae sit? Aut cupiditate in
+                    similique, rem sit excepturi vitae itaque voluptatum dolorem ad nobis non alias adipisci, optio eos
+                    esse? Quo maiores eligendi voluptate tenetur voluptatibus doloribus placeat veritatis, facilis
+                    impedit consequuntur? Magni in illo vel quidem eveniet fuga deserunt officiis fugit illum delectus.
+                    </breath>
+                </p>
+            </div>
+        </div>
+
+    </section>
+    <style>
+        .aman {
+            display: flex;
+            /* Enables flexbox */
+            justify-content: center;
+            /* Centers horizontally */
+            align-items: center;
+        }
+    </style>
+    <!-- <section class="aman">
+
+        <style>
+            .content-container {
+                max-width: 1700px;
+                width: 60%;
+                padding:34px 20px;
+                background: rgba(255, 255, 255, 0.1);
+                /* Transparent look for elegance */
+                backdrop-filter: blur(10px);
+                /* Blurs the background behind the container */
+                -webkit-backdrop-filter: blur(10px);
+                /* Ensures compatibility */
+                border-radius: 15px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                /* Adds depth */
+                
+            }
+
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 1.6;
+                margin-bottom: 10px;
+            }
+
+            @media (max-width: 768px) {
+                h1 {
+                    font-size: 20px;
+                    /* Adjust heading size for smaller screens */
+                }
+
+                p {
+                    font-size: 14px;
+                    /* Adjust paragraph size for smaller screens */
+                }
+            }
+        </style>
+        </head>
+
+        <body>
+            <div class="content-container">
+                <h1>Responsive Content Container</h1>
+                <p>Welcome! This is a responsive and stylish container for your content. You can use it to write
+                    articles, notes, or anything else you need.</p>
+                <p>The design adjusts beautifully to different screen sizes, making it easy to read on both mobile and
+                    desktop devices.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo itaque perferendis ducimus magnam id,
+                    iusto mollitia quis exercitationem at et esse dicta error beatae voluptatem. Cum suscipit vero quam
+                    exercitationem possimus ipsam corrupti aspernatur repellendus incidunt voluptates. Voluptate quia
+                    ducimus quis eaque nulla architecto, reiciendis ut a fugit aspernatur, esse quasi laudantium
+                    recusandae repudiandae deserunt soluta sit. Labore, itaque perferendis? Voluptas quas ex assumenda
+                    quasi facilis, commodi veritatis adipisci non ipsa porro iure tempore sed mollitia rem labore,
+                    Sapiente quidem
+                    optio aliquid, voluptatum itaque eos doloremque animi culpa, veniam voluptas illum quas deleniti non
+                    ad cumque? Officia neque hic, ex consectetur praesentium magnam, eius deserunt, veniam est aperiam
+                    obcaecati eaque!</p>
+            </div>
+
+    </section> -->
+    <style>
+        .suman {
+            margin-top: 50px;
+        }
+    </style>
+    <section class="aman suman">
+        <!-- About Container -->
+        <div class="w3-container amna" id="about">
+            <div class="w3-content" style="max-width:1100px" ,>
+                <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide ">ABOUT Us</span class="w3-text-white"
+                        style="font-size:50px"></h5>
+                <!-- <p class="big-bold-text ">Welcome to Mental Serenity, your sanctuary for finding calm amidst the chaos of everyday life. At Mental
+                  Serenity, we believe in the power of mindfulness, self-compassion, and holistic wellness to cultivate a
+                  balanced and fulfilling life. Our platform offers a diverse array of resources, from guided meditations and
+                  mindful exercises to expert articles and personal growth workshops, all designed to help you navigate the
+                  challenges of the modern world with grace and resilience. Join our community today and embark on a journey
+                  towards inner peace, emotional well-being, and a life of serenity.</p>
+                <p>Together, we can create a space where your mental well-being takes center stage, empowering you to live a
+                  more joyful and purposeful life.</p> -->
+                <div class="w3-panel w3-leftbar w3-light-grey">
+                    <p style="font-size: 25px; color: goldenrod;"><i><b style="color: rgba(18, 21, 21, 0.853);">music</b> has a profound ability to touch the human
+                            soul and uplift the spirit, making it a powerful tool in combating depression. Over the
+                            years, researchers have studied the connection between music and mental health, revealing
+                            that music can offer emotional solace, distraction, and even therapeutic benefits to those <br>
+                            battling depression.</i></p>
+
+                    <p style="font-size: 25px; color: goldenrod;">Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Quae ut deserunt, repellat facere
+                        fugiat necessitatibus repudiandae vel voluptatem laudantium quo ipsam. Saepe expedita,
+                        accusantium in reiciendis consequatur quisquam asperiores, fugiat explicabo, placeat laborum a
+                        alias nisi sed? Facilis, voluptatem. Iure hic tempora fuga totam vitae. <br>
+                        <br>
+                        
+                        <br><strong style="color: black;">Roaming</strong>Outside roaming ipsum dolor sit amet consectetur, adipisicing elit. Nostrum iure mollitia esse
+                        praesentium, consequuntur tempore deleniti quo, doloremque dolorem, ipsum tenetur impedit
+                        incidunt quae rem a facere dolorum perferendis placeat nemo magni quos ut exercitationem sunt
+                        maxime. Ipsa eum perspiciatis a dicta quam. Dolore cupiditate recusandae sapiente, ipsam numquam
+                        quos velit, fugit cum in dolores odit.
+                    </p>
+                </div>
+                <!-- <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p> -->
+                <img src="./images/pexels-tirachard-kumtanom-112571-1001850.jpg"
+                    style="width:100%;max-width:500px; margin-top:20px;" class="w3-margin">
+                <img src="./images/side-view-woman-sitting-nature_23-2149726429.avif"
+                    style="width:100%;max-width:500px; margin-top:40px;" class="w3-margin">
+                <!-- <p><strong>Address:</strong> 15 Adr street, 5015, NY</p> -->
+            </div>
+        </div>
+    <!--  -->
+        
+
+    
+   </section>
+
+   <section>
+    <section class="chatbox-section">
+        <div class="chatbox-container">
+            <div class="chatbox-header">
+                <h2>Mental Peace Chatbox</h2>
+            </div>
+    
+            <div class="chatbox-messages" id="chatboxMessages"></div>
+    
+            <div class="chatbox-input-container">
+                <input type="text" id="chatboxUserInput" placeholder="Ask a question...">
+                <button onclick="sendChatboxMessage()">Send</button>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        .chatbox-section {
+            padding: 40px; /* Increased padding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #e0f7fa, #c8e6c9); /* Soft gradient background */
+        }
+    
+        .chatbox-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+            padding: 30px; /* Increased padding */
+            border-radius: 15px; /* More rounded corners */
+            max-width: 700px; /* Increased max-width */
+            width: 100%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+        }
+    
+        .chatbox-header {
+            text-align: center;
+            font-size: 28px; /* Increased font size */
+            margin-bottom: 30px;
+            color: #2e7d32; /* Green for peace */
+            font-weight: 600; /* Bold font */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+        }
+    
+        .chatbox-messages {
+            max-height: 400px; /* Increased max-height */
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #f0f8ff; /* Light background for messages */
+            border-radius: 10px;
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+            margin-bottom: 20px;
+        }
+    
+        .chatbox-input-container {
+            display: flex;
+            margin-top: 25px;
+        }
+    
+        .chatbox-input-container input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #b0bec5;
+            border-radius: 8px;
+            font-size: 16px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+    
+        .chatbox-input-container button {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+    
+        .chatbox-input-container button:hover {
+            background-color: #81c784;
+        }
+    
+        .chatbox-message {
+            margin: 8px 0;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    
+        .chatbox-message.user {
+            background-color: #e0f2f7;
+            align-self: flex-end;
+            color: #1a237e;
+        }
+    
+        .chatbox-message.bot {
+            background-color: #e8f5e9;
+            align-self: flex-start;
+            color: #2e7d32;
+        }
+    </style>
+    
+    <script>
+        const chatboxMessagesContainer = document.getElementById('chatboxMessages');
+        const chatboxUserInput = document.getElementById('chatboxUserInput');
+    
+        function sendChatboxMessage() {
+            const userText = chatboxUserInput.value.trim();
+            if (!userText) return;
+    
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('chatbox-message', 'user');
+            userMessage.innerText = userText;
+            chatboxMessagesContainer.appendChild(userMessage);
+    
+            fetch('http://localhost:3000/api/content', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question: userText })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const botMessage = document.createElement('div');
+                botMessage.classList.add('chatbox-message', 'bot');
+                botMessage.innerText = data.result;
+                chatboxMessagesContainer.appendChild(botMessage);
+    
+                chatboxMessagesContainer.scrollTop = chatboxMessagesContainer.scrollHeight;
+                speakChatboxText(data.result);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const errorMessage = document.createElement('div');
+                errorMessage.classList.add('chatbox-message', 'bot');
+                errorMessage.innerText = 'Sorry, something went wrong. Please try again.';
+                chatboxMessagesContainer.appendChild(errorMessage);
+            });
+    
+            chatboxUserInput.value = '';
+        }
+    
+        function speakChatboxText(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.pitch = 1;
+                utterance.rate = 1;
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.log('Speech Synthesis not supported');
+            }
+        }
+    </script>
+   </section>
+   <section>
+    <style>
+        .footer{
+        width: 100%;
+       max-width: 100%;
+        padding: 20px 80px;
+        margin: 0;
+        background-color: black;
+        text-align: center;
+    }
+    .footer p{
+        color: whitesmoke;
+        padding: 20px auto;
+        margin: 20px auto;
+    }
+      </style>
+      <section class="footer">
+        <p>Gandhi Gram colony ,Bhagalpur, Bihar |9234124208| aman92341242@gmail.com</p>
+        <p>Copyright @ to aman bhardwaz</p>
+    </section>
+   </section>
+    <script>
+        const menuBtn = document.querySelector('.menu-btn');
+        const responsiveNav = document.querySelector('.responsive-nav');
+        const closeBtn = document.querySelector('.close-btn');
+
+        menuBtn.addEventListener('click', () => {
+            responsiveNav.style.display = 'flex';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            responsiveNav.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
