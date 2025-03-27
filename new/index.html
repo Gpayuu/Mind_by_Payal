@@ -12,7 +12,7 @@
     <nav class="navbar">
         <img src="Chakra4.svg.png" alt="" class="logo" width="100px">
         <ul class="nav-links">
-            <li class="active"><a href="..index.html"><span class="active">Home</span></a></li>
+            <li class="active"><a href="../index.html"><span class="active">Home</span></a></li>
             <li><a href="maximum.html">Councelling</a></li>
             <li><a href="./story/public/story.html">Story</a></li>
             
@@ -74,102 +74,257 @@
         </div>
     </section>
     <style>
-        .dicton {
-    font-family: Arial, sans-serif;
-    background-color: beige;
-    text-align: center;
-    
-   border-radius: 30px;
-    width: 50%;
-    padding: 20px;
-}
-
-.containerr {
-    max-width: 600px;
-    margin: auto;
-    background: white;
+        .symptom {
+    background-color: #0e1da5;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    color: #333;
-}
-
-#searchBox {
-    width: 80%;
-    padding: 10px;
-    border: 2px solid #4CAF50;
-    border-radius: 5px;
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-.result-box {
-    margin-top: 20px;
-    padding: 15px;
-    background: #e0f7fa;
-    border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-    .dicton{
-        width: 100%;
+    margin-top: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
     }
-    .container {
-        width: 100%;
-    }
-    #searchBox {
-        width: 100%;
-    }
-
-}
     </style>
-    <section class="dicton">
-        <div class="containerr">
-            <h1>Mental Health Dictionary</h1>
-            <input type="text" id="searchBox" placeholder="Search mental health condition..." oninput="searchCondition()">
-            <div id="result" class="result-box"></div>
-        </div>
-   <script>
-        const data = {
-    "Depression": {
-        "Symptoms": "Persistent sadness, loss of interest, fatigue, difficulty concentrating.",
-        "Precautions": "Regular exercise, therapy, social support, healthy sleep habits.",
-        "Food": "Omega-3 rich foods, leafy greens, nuts, and dark chocolate.",
-        "Meditation": "Mindfulness meditation, deep breathing exercises, yoga."
-    },
-    "Anxiety": {
-        "Symptoms": "Excessive worry, restlessness, rapid heart rate, trouble sleeping.",
-        "Precautions": "Cognitive behavioral therapy, relaxation techniques, reducing caffeine intake.",
-        "Food": "Herbal tea, whole grains, probiotic-rich foods, bananas.",
-        "Meditation": "Guided meditation, grounding exercises, progressive muscle relaxation."
-    }
-};
+    <section class="symptom">
 
-function searchCondition() {
-    const searchBox = document.getElementById("searchBox").value.trim();
-    const resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = "";
 
-    if (searchBox in data) {
-        const condition = data[searchBox];
-        resultDiv.innerHTML = `
-            <div class="result-box">
-                <h2>${searchBox}</h2>
-                <p><strong>Symptoms:</strong> ${condition.Symptoms}</p>
-                <p><strong>Precautions:</strong> ${condition.Precautions}</p>
-                <p><strong>Food:</strong> ${condition.Food}</p>
-                <p><strong>Meditation:</strong> ${condition.Meditation}</p>
-            </div>
-        `;
-    } else {
-        resultDiv.innerHTML = "<p style='color: red;'>Condition not found. Try another search.</p>";
+  <style>
+    /* General Styles */
+   
+
+    h1 {
+      font-size: 2.5em;
+      color: #fff;
+      margin-bottom: 20px;
     }
+
+    form {
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    textarea {
+      width: 90%;
+      max-width: 400px;
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    button {
+      background: linear-gradient(135deg, #76c7c0, #34a4a7);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 20px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #34a4a7, #76c7c0);
+      transform: scale(1.1);
+    }
+
+    #result {
+      margin-top: 20px;
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      color: #333;
+    }
+
+    #result h3 {
+      color: #0ba29d;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      form {
+        padding: 15px;
+      }
+
+      textarea {
+        font-size: 0.9em;
+      }
+
+      button {
+        font-size: 1em;
+        padding: 8px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      form {
+        width: 100%;
+      }
+
+      textarea {
+        width: 100%;
+      }
+
+      button {
+        padding: 6px 12px;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Mental Health Symptom Checker</h1>
+  <form id="symptomForm">
+    <label for="symptoms" style="color: #666; font-weight: bold;">Enter your symptoms:</label><br>
+    <textarea id="symptoms" rows="5" placeholder="E.g., sadness, anxiety"></textarea><br>
+    <button type="button" onclick="checkSymptoms()">Check</button>
+  </form>
+  <div id="result"></div>
+</body>
+</html>
+  <script>
+    function checkSymptoms() {
+  const symptoms = document.getElementById("symptoms").value.toLowerCase();
+  const resultDiv = document.getElementById("result");
+
+  if (!symptoms) {
+    resultDiv.innerHTML = "<p>Please enter your symptoms.</p>";
+    return;
+  }
+
+  let condition = "";
+  let precautions = "";
+  let food = "";
+  let medication = "";
+
+  if (symptoms.includes("sadness") || symptoms.includes("low mood") || symptoms.includes("loss of interest")) {
+    condition = "Depression";
+    precautions = "Practice mindfulness, seek therapy, maintain social connections.";
+    food = "Omega-3 rich foods, leafy greens, nuts.";
+    medication = "Consult a psychiatrist for antidepressants.";
+  } else if (symptoms.includes("anxiety") || symptoms.includes("worry") || symptoms.includes("nervousness")) {
+    condition = "Anxiety Disorder";
+    precautions = "Meditation, regular exercise, avoid caffeine.";
+    food = "Chamomile tea, bananas, whole grains.";
+    medication = "Consult a psychiatrist for anti-anxiety medication.";
+  } else if (symptoms.includes("mood swings") || symptoms.includes("high energy") || symptoms.includes("low energy")) {
+    condition = "Bipolar Disorder";
+    precautions = "Maintain a regular sleep schedule, avoid stress, adhere to therapy.";
+    food = "Omega-3 fatty acids, fresh vegetables, whole grains.";
+    medication = "Mood stabilizers under psychiatric supervision.";
+  } else if (symptoms.includes("intrusive thoughts") || symptoms.includes("compulsions") || symptoms.includes("obsessions")) {
+    condition = "Obsessive-Compulsive Disorder (OCD)";
+    precautions = "Engage in cognitive-behavioral therapy (CBT), practice mindfulness.";
+    food = "Probiotic foods, leafy greens, whole grains.";
+    medication = "Consult a psychiatrist for SSRIs.";
+  } else if (symptoms.includes("flashbacks") || symptoms.includes("nightmares") || symptoms.includes("hypervigilance")) {
+    condition = "Post-Traumatic Stress Disorder (PTSD)";
+    precautions = "Seek trauma-focused therapy, engage in grounding techniques.";
+    food = "Turmeric, green tea, blueberries.";
+    medication = "Consult a psychiatrist for trauma-specific medication.";
+  } else if (symptoms.includes("hallucinations") || symptoms.includes("delusions") || symptoms.includes("disorganized thinking")) {
+    condition = "Schizophrenia";
+    precautions = "Maintain a structured routine, engage in therapy, avoid substance abuse.";
+    food = "Antioxidant-rich foods, fish, whole grains.";
+    medication = "Antipsychotics under psychiatric supervision.";
+  } else if (symptoms.includes("forgetfulness") || symptoms.includes("confusion") || symptoms.includes("disorientation")) {
+    condition = "Dementia";
+    precautions = "Engage in memory exercises, maintain a healthy lifestyle.";
+    food = "Leafy greens, berries, omega-3s.";
+    medication = "Consult a neurologist for cognitive support medications.";
+  } else if (symptoms.includes("inattention") || symptoms.includes("hyperactivity") || symptoms.includes("impulsivity")) {
+    condition = "Attention-Deficit/Hyperactivity Disorder (ADHD)";
+    precautions = "Use organizational tools, maintain structured routines.";
+    food = "Protein-rich foods, complex carbohydrates, omega-3s.";
+    medication = "Consult a psychiatrist for stimulant or non-stimulant medication.";
+  } else if (symptoms.includes("fear of judgment") || symptoms.includes("avoidance") || symptoms.includes("self-consciousness")) {
+    condition = "Social Anxiety Disorder";
+    precautions = "Practice gradual exposure to social situations, engage in CBT.";
+    food = "Magnesium-rich foods, whole grains, leafy greens.";
+    medication = "Consult a psychiatrist for anti-anxiety medication.";
+  } else if (symptoms.includes("overeating") || symptoms.includes("undereating") || symptoms.includes("body image issues")) {
+    condition = "Eating Disorder";
+    precautions = "Engage in therapy, maintain balanced nutrition.";
+    food = "Nutrient-dense whole foods, healthy fats, lean protein.";
+    medication = "Seek specialized treatment for eating disorders.";
+  } else if (symptoms.includes("chronic fatigue") || symptoms.includes("insomnia") || symptoms.includes("headaches")) {
+    condition = "Chronic Stress Disorder";
+    precautions = "Prioritize rest, engage in stress-reduction activities.";
+    food = "Complex carbs, magnesium-rich foods, herbal teas.";
+    medication = "Consult a healthcare professional for stress management.";
+  } else if (symptoms.includes("persistent sadness") || symptoms.includes("fatigue") || symptoms.includes("loss of interest")) {
+    condition = "Persistent Depressive Disorder (Dysthymia)";
+    precautions = "Engage in psychotherapy, maintain social support.";
+    food = "Whole grains, fatty fish, dark chocolate in moderation.";
+    medication = "Consult a psychiatrist for antidepressants.";
+  } else if (symptoms.includes("irrational fears") || symptoms.includes("sweating") || symptoms.includes("trembling")) {
+    condition = "Phobia";
+    precautions = "Exposure therapy, relaxation techniques.";
+    food = "Magnesium-rich foods, leafy greens, vitamin B12-rich foods.";
+    medication = "Consult a therapist for specialized phobia treatment.";
+  } else if (symptoms.includes("dissociation") || symptoms.includes("memory loss") || symptoms.includes("identity confusion")) {
+    condition = "Dissociative Disorder";
+    precautions = "Grounding techniques, engage in therapy.";
+    food = "Brain-healthy foods like walnuts, berries, and leafy greens.";
+    medication = "Consult a mental health professional for treatment.";
+  } else if (symptoms.includes("perfectionism") || symptoms.includes("intense self-criticism") || symptoms.includes("burnout")) {
+    condition = "Perfectionism-Related Anxiety";
+    precautions = "Engage in mindfulness, set realistic goals.";
+    food = "Whole grains, fatty fish, dark leafy greens.";
+    medication = "Therapy and stress management techniques recommended.";
+  } else if (symptoms.includes("impulsive behavior") || symptoms.includes("uncontrollable urges") || symptoms.includes("risk-taking")) {
+    condition = "Impulse Control Disorder";
+    precautions = "Engage in behavioral therapy, develop impulse-control techniques.";
+    food = "Balanced diet rich in proteins and complex carbs.";
+    medication = "Consult a psychiatrist for behavioral intervention.";
+  } else if (symptoms.includes("paranoia") || symptoms.includes("mistrust") || symptoms.includes("suspiciousness")) {
+    condition = "Paranoid Personality Disorder";
+    precautions = "Cognitive-behavioral therapy, social skills training.";
+    food = "Nutrient-rich foods that promote brain health.";
+    medication = "Consult a psychiatrist for personalized treatment.";
+  } else if (symptoms.includes("excessive self-focus") || symptoms.includes("lack of empathy") || symptoms.includes("need for admiration")) {
+    condition = "Narcissistic Personality Disorder";
+    precautions = "Psychotherapy focusing on self-awareness.";
+    food = "Balanced diet with whole foods to maintain physical health.";
+    medication = "Consult a mental health professional for therapy.";
+  } else if (symptoms.includes("unstable relationships") || symptoms.includes("emotional instability") || symptoms.includes("fear of abandonment")) {
+    condition = "Borderline Personality Disorder (BPD)";
+    precautions = "Dialectical behavior therapy (DBT), emotional regulation practices.";
+    food = "Brain-supportive foods: fatty fish, seeds, leafy greens.";
+    medication = "Consult a psychiatrist for mood regulation medication.";
+  } else {
+    condition = "Unknown condition";
+    precautions = "Consult a mental health professional.";
+    food = "Maintain a balanced diet.";
+    medication = "Seek professional medical advice.";
+  }
+
+  resultDiv.innerHTML = `
+    <h3>Results:</h3>
+    <p><strong>Possible Condition:</strong> ${condition}</p>
+    <p><strong>Precautions:</strong> ${precautions}</p>
+    <p><strong>Recommended Food:</strong> ${food}</p>
+    <p><strong>Medication:</strong> ${medication}</p>
+  `;
 }
-   </script>
+  </script>
+
     </section>
     <div class="trauma">
         <div class="row">

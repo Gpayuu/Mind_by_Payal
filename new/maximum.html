@@ -31,8 +31,8 @@
       }
     </style>
     <ul class="nav-links">
-      <li class="active"><a href="..index.html"><span class="active">Home</span></a></li>
-      <li><a href="index.html">Dictonary</a></li>
+      <li class="active"><a href="../index.html"><span class="active">Home</span></a></li>
+      <li><a href="index.html">Disease Detector</a></li>
       <li><a href="./story/public/story.html">Story</a></li>
       
 
@@ -322,9 +322,46 @@
     
     <script>
         const counselors = {
-            "New York": { name: "Dr. Emily Carter", address: "123 Wellness St, NY", number: "(123) 456-7890" },
-            "Los Angeles": { name: "Dr. John Smith", address: "456 Peace Ave, LA", number: "(987) 654-3210" },
-            "Chicago": { name: "Dr. Lisa Green", address: "789 Calm Rd, Chicago", number: "(555) 123-4567" }
+        
+    "Mumbai": { name: "Dr. Rohan Mehta", address: "101 MindCare Center, Bandra, Mumbai", number: "(022) 1234-5678" },
+    "Delhi": { name: "Dr. Ananya Kapoor", address: "202 Harmony Clinic, Connaught Place, Delhi", number: "(011) 8765-4321" },
+    "Bangalore": { name: "Dr. Karthik Rao", address: "303 Serenity Wellness, MG Road, Bangalore", number: "(080) 2345-6789" },
+    "Hyderabad": { name: "Dr. Priya Reddy", address: "404 PeaceMind Clinic, Banjara Hills, Hyderabad", number: "(040) 3456-7890" },
+    "Chennai": { name: "Dr. Suresh Iyer", address: "505 Calm Horizon, Anna Nagar, Chennai", number: "(044) 5678-1234" },
+    "Kolkata": { name: "Dr. Rajesh Banerjee", address: "606 Tranquil Minds, Salt Lake, Kolkata", number: "(033) 6789-2345" },
+    "Pune": { name: "Dr. Neha Deshpande", address: "707 Wellness Haven, Koregaon Park, Pune", number: "(020) 7890-3456" },
+    "Ahmedabad": { name: "Dr. Vikram Patel", address: "808 Mental Wellness Hub, SG Highway, Ahmedabad", number: "(079) 8901-4567" },
+    "Jaipur": { name: "Dr. Anjali Sharma", address: "909 Zen Mind Clinic, Malviya Nagar, Jaipur", number: "(0141) 9012-5678" },
+    "Lucknow": { name: "Dr. Mohit Verma", address: "1010 Serene Center, Gomti Nagar, Lucknow", number: "(0522) 0123-6789" },
+    "Chandigarh": { name: "Dr. Simran Kaur", address: "1111 Mental Peace Hub, Sector 17, Chandigarh", number: "(0172) 1234-7890" },
+    "Bhopal": { name: "Dr. Abhishek Jain", address: "1212 MindEase Clinic, MP Nagar, Bhopal", number: "(0755) 2345-8901" },
+    "Indore": { name: "Dr. Ritu Sharma", address: "1313 Harmony Hub, Vijay Nagar, Indore", number: "(0731) 3456-9012" },
+    "Patna": { name: "Dr. Aman Kumar", address: "1414 Tranquility Center, Boring Road, Patna", number: "(0612) 4567-0123" },
+    "Bhubaneswar": { name: "Dr. Suman Das", address: "1515 Mental Wellness Clinic, Jayadev Vihar, Bhubaneswar", number: "(0674) 5678-1234" },
+    "Dehradun": { name: "Dr. Arjun Singh", address: "1616 Peaceful Mind Center, Rajpur Road, Dehradun", number: "(0135) 6789-2345" },
+    "Guwahati": { name: "Dr. Nandini Barman", address: "1717 Serenity Clinic, GS Road, Guwahati", number: "(0361) 7890-3456" },
+    "Nagpur": { name: "Dr. Rajeev Thakur", address: "1818 Mind Care Center, Dharampeth, Nagpur", number: "(0712) 8901-4567" },
+    "Coimbatore": { name: "Dr. Kavitha Nair", address: "1919 Calm Therapy Hub, RS Puram, Coimbatore", number: "(0422) 9012-5678" },
+    "Vijayawada": { name: "Dr. Ravi Teja", address: "2020 Wellbeing Clinic, MG Road, Vijayawada", number: "(0866) 0123-6789" },
+    "Visakhapatnam": { name: "Dr. Sneha Reddy", address: "2121 Serenity Center, Beach Road, Visakhapatnam", number: "(0891) 1234-7890" },
+    "Madurai": { name: "Dr. Harish Kumar", address: "2222 Mental Balance Hub, KK Nagar, Madurai", number: "(0452) 2345-8901" },
+    "Mysore": { name: "Dr. Varun Shetty", address: "2323 Mind Harmony Clinic, KR Circle, Mysore", number: "(0821) 3456-9012" },
+    "Rajkot": { name: "Dr. Shreya Mehta", address: "2424 Tranquility Center, Yagnik Road, Rajkot", number: "(0281) 4567-0123" },
+    "Udaipur": { name: "Dr. Anurag Joshi", address: "2525 Peaceful Thoughts Clinic, Fateh Sagar, Udaipur", number: "(0294) 5678-1234" },
+    "Ranchi": { name: "Dr. Neeraj Kumar", address: "2626 Serene Wellness Hub, Kanke Road, Ranchi", number: "(0651) 6789-2345" },
+    "Shimla": { name: "Dr. Meenal Thakur", address: "2727 CalmMind Clinic, Mall Road, Shimla", number: "(0177) 7890-3456" },
+    "Jodhpur": { name: "Dr. Chetan Rathore", address: "2828 Mind Wellness Center, Sardarpura, Jodhpur", number: "(0291) 8901-4567" },
+    "Tiruchirapalli": { name: "Dr. Nalini Subramanian", address: "2929 Mental Wellbeing Hub, Cantonment, Tiruchirapalli", number: "(0431) 9012-5678" },
+    "Allahabad": { name: "Dr. Manish Tiwari", address: "3030 Serene Thoughts Clinic, Civil Lines, Allahabad", number: "(0532) 0123-6789" },
+    "Goa": { name: "Dr. Sonia Fernandes", address: "3131 Tranquil Minds Center, Panjim, Goa", number: "(0832) 1234-7890" },
+    "Agra": { name: "Dr. Yashvardhan Gupta", address: "3232 Mind Balance Clinic, Tajganj, Agra", number: "(0562) 2345-8901" },
+    "Varanasi": { name: "Dr. Rachna Pandey", address: "3333 Peace of Mind Hub, Assi Ghat, Varanasi", number: "(0542) 3456-9012" },
+    "Kochi": { name: "Dr. Anoop Nair", address: "3434 Harmony Wellness Clinic, MG Road, Kochi", number: "(0484) 4567-0123" },
+    "Thiruvananthapuram": { name: "Dr. Lakshmi Menon", address: "3535 Serene Living Center, Kowdiar, Thiruvananthapuram", number: "(0471) 5678-1234" },
+    "Ludhiana": { name: "Dr. Satinder Singh", address: "3636 MindCare Hub, Ferozepur Road, Ludhiana", number: "(0161) 6789-2345" },
+    "Kanpur": { name: "Dr. Ramesh Saxena", address: "3737 Tranquility Wellness, Swaroop Nagar, Kanpur", number: "(0512) 7890-3456" },
+    "Jammu": { name: "Dr. Rohit Sharma", address: "3838 Mental Wellness Hub, Gandhi Nagar, Jammu", number: "(0191) 8901-4567" }
+
         };
         
         function searchCounselor() {

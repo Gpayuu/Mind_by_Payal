@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+}
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.0)), url(./pexels-pixabay-326055.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .navbar {
+            width: 85%;
+            margin: auto;
+            padding: 35px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 120px;
+            cursor: pointer;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .navbar ul li::after {
+            content: '';
+            height: 3px;
+            width: 0%;
+            background: #009688;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover::after {
+            width: 100%;
+        }
+
+        .menubar {
+            font-size: 22px;
+        }
+
+        .content {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            color: #fff;
+        }
+
+        .content h1 {
+            font-size: 70px;
+            margin-top: 80px;
+        }
+
+        .content p {
+            margin: 20px auto;
+            font-weight: 100;
+            line-height: 25px;
+        }
+
+        button {
+            width: 200px;
+            padding: 15px 0;
+            text-align: center;
+            margin: 20px 10px;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 2px solid #009688;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        span {
+            background: #009688;
+            height: 100%;
+            width: 0%;
+            border-radius: 25px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            transition: 0.5s;
+        }
+
+        button:hover span {
+            width: 100%;
+        }
+
+        button:hover {
+            border: none;
+        }
+
+        .menu-btn {
+            display: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 30px;
+        }
+
+        .responsive-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .responsive-nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .responsive-nav ul li {
+            margin: 20px 0;
+        }
+
+        .responsive-nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .responsive-nav .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .content h1::after {
+            content: '';
+            display: block;
+            width: 400px;
+            height: 3px;
+            background-color: red;
+            margin: 10px auto;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+            }
+
+            .content h1::after {
+                width: 100px;
+            }
+
+            .content h1 {
+                font-size: 30px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <h1 class="logo" style="color: #fff;">Mentease</h1>
+            <ul class="menubar">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../new/maximum.html">Dictonary</a></li>
+                <li><a href="../../new/maximum.html">Councellor</a></li>
+                <li><a href="../new/story/public/story.html">Story</a></li>
+               
+            </ul>
+            <div class="menu-btn">&#9776;</div>
+        </div>
+        <div class="content">
+            <h1>Welcome To Our Website</h1>
+            <p>"Healing takes time, and asking for help is a courageous step."</p>
+            <div>
+                <button type="button"><span></span>Come Here</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="responsive-nav">
+        <div class="close-btn">&times;</div>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../new/index.html">Dictonary</a></li>
+            <li><a href="../new/maximum.html">Councellor</a></li>
+            <li><a href="../new/story/public/story.html">Story</a></li>
+           
+        </ul>
+    </div>
+    <style>
+        .sneha{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-color: #f1f1f1; */
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+    </style>
+   <section class="sneha">
+
+    <style>
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e0f7fa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr { border: 1px solid #ccc; }
+
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+            }
+
+            td:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: 600;
+            }
+
+            /* Data Labels */
+            td:nth-of-type(1):before { content: "Issue"; }
+            td:nth-of-type(2):before { content: "Estimated Cases (Millions)"; }
+            td:nth-of-type(3):before { content: "Source"; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Mental Health Statistics in India</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Issue</th>
+                    <th>Estimated Cases (Millions)</th>
+                    <th>Source</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Depression</td>
+                    <td>~45-50</td>
+                    <td>Various studies, including WHO reports and Indian national surveys.</td>
+                </tr>
+                <tr>
+                    <td>Anxiety Disorders</td>
+                    <td>~38-40</td>
+                    <td>Various studies, including WHO reports and Indian national surveys.</td>
+                </tr>
+                <tr>
+                    <td>Schizophrenia</td>
+                    <td>~2-3</td>
+                    <td>National Mental Health Survey of India.</td>
+                </tr>
+                <tr>
+                    <td>Bipolar Disorder</td>
+                    <td>~1-2</td>
+                    <td>National Mental Health Survey of India.</td>
+                </tr>
+                <tr>
+                    <td>Other Mental Disorders</td>
+                    <td>~10-15</td>
+                    <td>Various studies and reports.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><i>Note: These figures are estimates and may vary based on different studies and methodologies. Mental health statistics in India are often underreported.</i></p>
+    </div>
+>
+   </section>
+
+    <style>
+        .chat-box {
+           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-color: #f1f1f1; */
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <section class="chat-box">
+       
+       
+    
+
+
+    <div class="chat-container">
+        <div class="name-input">
+            <h2>Welcome to ChatBox</h2>
+            <input type="text" id="username" placeholder="Enter your name">
+            <button onclick="registerUser()">Join Chat</button>
+        </div>
+
+        <div class="chat-box" id="chatBox">
+            <div id="messages"></div>
+            <div class="input-container">
+                <input type="text" id="messageInput" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+
+
+
+
+   
+    </section>
+
+    <section>
+        <style>
+            .footer{
+            width: 100%;
+           max-width: 100%;
+            padding: 20px 80px;
+            margin: 0;
+            background-color: black;
+            text-align: center;
+        }
+        .footer p{
+            color: whitesmoke;
+            padding: 20px auto;
+            margin: 20px auto;
+        }
+          </style>
+          <section class="footer">
+            <p>Gandhi Gram colony ,Bhagalpur, Bihar |9234124208| aman92341242@gmail.com</p>
+            <p>Copyright @ to aman bhardwaz</p>
+        </section>
+       </section>
+        <script>
+            const menuBtn = document.querySelector('.menu-btn');
+            const responsiveNav = document.querySelector('.responsive-nav');
+            const closeBtn = document.querySelector('.close-btn');
+    
+            menuBtn.addEventListener('click', () => {
+                responsiveNav.style.display = 'flex';
+            });
+    
+            closeBtn.addEventListener('click', () => {
+                responsiveNav.style.display = 'none';
+            });
+        </script>
+    </body>
+    
+    </html>
