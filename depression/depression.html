@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Depression Level Checker</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            padding: 20px;
+        }
+        #title {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+        }
+        #chat-container {
+            width: 90%;
+            max-width: 500px;
+            height: 600px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            position: relative;
+        }
+        .message {
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 8px;
+            max-width: 80%;
+            font-size: 16px;
+        }
+        .bot-message {
+            background: #e0e0e0;
+            align-self: flex-start;
+        }
+        .user-message {
+            background: #4caf50;
+            color: white;
+            align-self: flex-end;
+        }
+        #input-container {
+            display: flex;
+            margin-top: auto;
+        }
+        #user-input {
+            flex-grow: 1;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        #send-button, #back-button {
+            padding: 12px 18px;
+            margin-left: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        #send-button {
+            background: #4caf50;
+            color: white;
+        }
+        #send-button:hover {
+            background: #388e3c;
+        }
+        #back-button {
+            background: #ff4d4d;
+            color: white;
+            margin-top: 15px;
+        }
+        #back-button:hover {
+            background: #d32f2f;
+        }
+        #video-container {
+            display: none;
+            margin-top: 10px;
+        }
+        #score-container {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            #chat-container {
+                height: 500px;
+            }
+            #title {
+                font-size: 22px;
+            }
+            #send-button, #back-button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="title">Depression Level Checker</div>
+    <div id="chat-container">
+        <div id="chat"></div>
+        <div id="video-container">
+            <video width="100%" controls id="depression-video">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div id="score-container"></div>
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Type your answer...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    <button id="back-button" onclick="window.location.href = '../index.html';">Go Back</button>
+    <script>
+        const questions = [
+            "How often do you feel overwhelmed or stressed in your daily life? (Rarely / Sometimes / Often / Always)",
+            "Do you experience trouble sleeping, such as insomnia or oversleeping? (Yes / No)",
+            "Have you lost interest in activities that you used to enjoy? (Yes / No)",
+            "How much time has it been since you started feeling changes? (Few weeks / Months / More)",
+            "Have you had any thoughts of harming yourself or others? (Yes / No)",
+            "Has this ever happened to you before? (Yes / No)",
+            "How do you usually cope with stress or emotional difficulties?",
+            "Have you experienced traumatic events that still affect your thoughts or emotions? (Yes / No)",
+            "Do you have frequent headaches, stomachaches, or other unexplained physical symptoms? (Yes / No)",
+            "Have you been avoiding social interactions or isolating yourself? (Yes / No)"
+        ];
+        let index = 0;
+        let score = 0;
+
+        function addMessage(text, isUser) {
+            const chat = document.getElementById("chat");
+            const message = document.createElement("div");
+            message.classList.add("message", isUser ? "user-message" : "bot-message");
+            message.textContent = text;
+            chat.appendChild(message);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        function askNextQuestion() {
+            if (index < questions.length) {
+                addMessage(questions[index], false);
+            } else {
+                showDepressionLevel();
+            }
+        }
+
+        function showDepressionLevel() {
+            let videoSrc = "";
+            let scoreContainer = document.getElementById("score-container");
+            scoreContainer.textContent = `Depression Score: ${score}/10`;
+            
+            if (score >= 7) {
+                addMessage("Your depression level is High. Here’s a helpful video.", false);
+                videoSrc = "high.mp4";
+            } else if (score >= 4) {
+                addMessage("Your depression level is Medium. Watch this video for guidance.", false);
+                videoSrc = "medium.mp4";
+            } else {
+                addMessage("Your depression level is Low. Stay positive and take care!", false);
+            }
+            
+            if (videoSrc) {
+                document.getElementById("depression-video").src = videoSrc;
+                document.getElementById("video-container").style.display = "block";
+            }
+        }
+
+        document.getElementById("send-button").addEventListener("click", function () {
+            const inputField = document.getElementById("user-input");
+            const userText = inputField.value.trim().toLowerCase();
+            if (!userText) return;
+
+            addMessage(userText, true);
+            inputField.value = "";
+
+            if (index > 0 && (userText === "yes" || userText === "often" || userText === "always" || userText === "more")) {
+                score++;
+            }
+
+            index++;
+            setTimeout(askNextQuestion, 1000);
+        });
+
+        askNextQuestion();
+    </script>
+</body>
+</html>
